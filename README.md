@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Instalação:
 
-Things you may want to cover:
+Esse projeto foi desenvolvido em:
+Ruby:  2.4.1p111 
+Rails: 5.2.0
+Banco de dados: MySQL
 
-* Ruby version
+Depois de baixar o projeto:
 
-* System dependencies
+1. Instale as dependências com o comando:
+$ bundle install
 
-* Configuration
+2. Crie um database com o nome "ubs"
 
-* Database creation
+3. Rode a migração
+$ rails db:migrate
 
-* Database initialization
+4.Vamos importar os dados do arquivo ubs.csv, que encontra-se no diretório tmp, para o banco de dados através de uma tarefa:
 
-* How to run the test suite
+rails csv:import
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+
+
