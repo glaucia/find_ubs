@@ -14,9 +14,10 @@ module Api
       def find_ubs
         page_number = params[:page].try(:[], :number)
         per_page = params[:page].try(:[], :size)
+        total = Ubs.all.size
         
         if params[:query] == nil
-          @ubs = Ubs.first(30)
+          @ubs = Ubs.all.page(page_number).per(per_page)
         else
           query = params[:query].to_s.split(',')
           unidade =Ubs.where('lat = ? AND lng = ?', query[0], query[1])
@@ -24,7 +25,7 @@ module Api
           @ubs = unidade.page(page_number).per(per_page)
         end
              
-        render json: @ubs, current_page: page_number, per_page: per_page, total_entries: @ubs.size 
+        render json: @ubs, current_page: page_number, per_page: per_page, total_entries: total 
       end
 
       # GET /ubs/1

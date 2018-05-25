@@ -3,10 +3,9 @@ class UbsSerializer < ActiveModel::Serializer
 
   attributes :data
 
-	def data
-		
+	def data		
 		{
-			current_page: page_number,
+			current_page: current_page,
 			per_page: per_page,
 			total_entries: total_entries,			
 	  	entries:
